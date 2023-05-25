@@ -25,8 +25,8 @@ public class BubbleSort{
 				}
 			}
 		}
-		System.out.println(routeString);
-		showArray(array);
+		// System.out.println(routeString);
+		// showArray(array);
 		return routeString;
 		
 	}

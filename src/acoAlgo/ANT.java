@@ -169,9 +169,9 @@ public class ANT {
 */        
               
         
-/*        //bubbleSort
+   //bubbleSort
         ArrayList<String> aList=new ArrayList<>();
-        for(int m=0;m<5;m++)
+        for(int m=0;m<3;m++)
         {
             int first=m*6;
         	aList.add(string2.substring(first, first+6));
@@ -189,7 +189,7 @@ public class ANT {
         notChangeIntArray=intArray.clone();
         String realRoute=bubbleSort.sort(intArray);
         double score=tools.calScore(weWantRoute, realRoute);
-        System.out.println("SCORE:  "+score);
+        // System.out.println("SCORE:  "+score);
         if(score==1.0)
         {
         	for(int o=0;o<notChangeIntArray.length;o++)
@@ -199,29 +199,29 @@ public class ANT {
             return "!";
         }
         //bubbleSort      
-*/        
+        
  
         
         
  
         //triangle
-        String aString=string2.substring(0, 8);
-        String bString=string2.substring(8, 16);
-        String cString=string2.substring(16, 24);
+        // String aString=string2.substring(0, 8);
+        // String bString=string2.substring(8, 16);
+        // String cString=string2.substring(16, 24);
         
-        Tools tools=new Tools();
-        int a=Integer.parseInt(tools.deCode2to10(aString));
-        int b=Integer.parseInt(tools.deCode2to10(bString));
-        int c=Integer.parseInt(tools.deCode2to10(cString));
-        Triangle triangle=new Triangle();
-        String realRoute=triangle.judge(a, b, c);
-        double score=tools.calScore(weWantRoute, realRoute);
-        if(score==1.0)
-        {
-        	System.out.println("!!!!!!!!!!!!!!!!!!!!"+a+"!!!!!!!!!!!!"+b+"!!!!!!!!!!!!!!!!"+c);
-            return "!";
+        // Tools tools=new Tools();
+        // int a=Integer.parseInt(tools.deCode2to10(aString));
+        // int b=Integer.parseInt(tools.deCode2to10(bString));
+        // int c=Integer.parseInt(tools.deCode2to10(cString));
+        // Triangle triangle=new Triangle();
+        // String realRoute=triangle.judge(a, b, c);
+        // double score=tools.calScore(weWantRoute, realRoute);
+        // if(score==1.0)
+        // {
+        // 	System.out.println("!!!!!!!!!!!!!!!!!!!!"+a+"!!!!!!!!!!!!"+b+"!!!!!!!!!!!!!!!!"+c);
+        //     return "!";
             
-        }
+        // }
         //triangle
         
         

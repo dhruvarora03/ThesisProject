@@ -9,7 +9,7 @@ public class ACO
 
 	private static final String String = null;
 	private CityGraph weight_distance;
-	private int citynum = 36;//triangle:24 (3*8 generate 0~255  three number)  
+	private int citynum = 30;//triangle:24 (3*8 generate 0~255  three number)  
 	                         //bubbleSort:30 (5*6 generate 0~63 five number)
 	                         //binarySearch:36(5*6+1*6 generate 0~63 six number)
 	private int p = 1000;//interation times
@@ -97,7 +97,7 @@ public class ACO
 		startTime = System.currentTimeMillis();
 		for (int i = 0; i < p; i++) 
 		{//after each iteration,the results will update 
-			System.out.println("The" + i + "th  iterations：");
+			// System.out.println("The" + i + "th  iterations：");
 			Init_Ants();
 			MovetoNextCity();
 			findBestRoad();
@@ -114,11 +114,11 @@ public class ACO
 		ArrayList<String> aList=new ArrayList<>();
 		
 		
-/*        //bubbleSort
+       //bubbleSort
 		int routeLength=0;
-		for (int j = 1; j < 5;j++)
+		for (int j = 1; j < 3;j++)
 		{
-			for (int m=0;m <5-j;m++)
+			for (int m=0;m <3-j;m++)
 			{
 				routeLength++;
 			}
@@ -126,7 +126,7 @@ public class ACO
 		Tools tools=new Tools();
 		aList=tools.genWeWantRoute(routeLength);
 		//bubbleSort 
-*/		
+		
 
 		
 
@@ -156,7 +156,7 @@ public class ACO
 		
 
 		//triangle
-		aList.add("000");aList.add("001");aList.add("11");aList.add("22");aList.add("33");
+		// aList.add("000");aList.add("001");aList.add("11");aList.add("22");aList.add("33");
 		//triangle
 		
 		
@@ -169,7 +169,8 @@ public class ACO
 				//i--;
 			}else
 			{
-				System.out.println("find!");
+
+				System.out.println(aList.get(i));
 			}
 		}
 		
