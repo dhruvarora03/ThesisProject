@@ -9,7 +9,7 @@ public class ACO
 
 	private static final String String = null;
 	private CityGraph weight_distance;
-	private int citynum = 30;//triangle:24 (3*8 generate 0~255  three number)  
+	private int citynum = 18;//triangle:24 (3*8 generate 0~255  three number)  
 	                         //bubbleSort:30 (5*6 generate 0~63 five number)
 	                         //binarySearch:36(5*6+1*6 generate 0~63 six number)
 	private int p = 1000;//interation times
@@ -23,6 +23,7 @@ public class ACO
 	private double Q = 1000;
 	private long startTime;
 	private long endTime;
+	int iterations = 0;
 
 	//initial 
 	private void Init_Distance() 
@@ -89,7 +90,9 @@ public class ACO
 
 	}
 
-	
+	public int iterations(){
+		return iterations;
+	}
 	private String iterator(String weWantRoute) 
 	{
 		Init_Distance();
@@ -97,14 +100,16 @@ public class ACO
 		startTime = System.currentTimeMillis();
 		for (int i = 0; i < p; i++) 
 		{//after each iteration,the results will update 
-			// System.out.println("The" + i + "th  iterations：");
 			Init_Ants();
 			MovetoNextCity();
 			findBestRoad();
 			endTime = System.currentTimeMillis();
 			String flag2= updatePheromone(weWantRoute);
-			if(flag2=="!")
+			if(flag2=="!"){
+				System.out.println("The" + i + "th  iterations：");
+				iterations=i;
 				return "!";
+			}
 		}
 		return "no";
 	}
@@ -159,20 +164,35 @@ public class ACO
 		// aList.add("000");aList.add("001");aList.add("11");aList.add("22");aList.add("33");
 		//triangle
 		
-		
+		int success = 0;
+		int failure = 0;
+		long start = System.currentTimeMillis();
+		int totalIterations = 0;
 		for(int i=0;i<aList.size();i++)
 		{
 			ACO aco = new ACO();
 			String iString=aco.iterator(aList.get(i));
 			if(iString!="!")
 			{
+				failure++;
 				//i--;
 			}else
 			{
-
+				success++;
 				System.out.println(aList.get(i));
+				totalIterations += aco.iterations();
 			}
 		}
+		long end = System.currentTimeMillis();
+		float executionTime = (float)(end - start) / 1000; 
+		float codeCoverage = (float) success/(success+failure);
+		float averageIterations = (float) totalIterations / success;
+		System.out.println("Code Coverage: "+codeCoverage);
+		System.out.println("Success Rate: "+codeCoverage);
+		System.out.println("Execution Time: "+executionTime+"s");
+		System.out.println("Average Iterations: "+ averageIterations);
+
+
 		
 	}
 }

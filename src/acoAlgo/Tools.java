@@ -74,7 +74,7 @@ public class Tools {
 	        	 aList.set(s, original+"#");
 	         }
     	}
-    	for(int m=1;m<aList.size();m++)
+    	for(int m=0;m<aList.size();m++)
     	{
     		System.out.println(aList.get(m));
     	}
