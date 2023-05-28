@@ -3,7 +3,7 @@ package acoAlgo;
 import java.util.Random;
 
 /**
- * distance[][]一旦确定不再改变，迭代过程中更新pheromone[][]
+ * distance[][]一pheromone[][]
  *
  * 
  */

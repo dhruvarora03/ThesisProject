@@ -8,7 +8,7 @@ public class ACO {
 
 	private static final String String = null;
 	private CityGraph weight_distance;
-	private int citynum = 18;// triangle:24 (38 generate 0~255 three number)
+	private int citynum = 24;// triangle:24 (38 generate 0~255 three number)
 								// bubbleSort:18 (56 generate 0~63 five number)
 								// binarySearch:36(56+16 generate 0~63 six number)
 	private int p = 1000;// interation times
@@ -49,7 +49,7 @@ public class ACO {
 	private void MovetoNextCity() {
 		for (int i = 0; i < antNum; i++) {
 			ants[i].chooseNextCity();
-			// ants[i].updatePheromone();//信息素更新在一次迭代结束
+			// ants[i].updatePheromone();
 			// ants[i].calRoad();
 		}
 	}
@@ -106,18 +106,18 @@ public class ACO {
 	public static void main(String[] args) {
 		ArrayList<String> aList = new ArrayList<>();
 
-		// bubbleSort
-		int routeLength = 0;
-		for (int j = 1; j < 3; j++) {
-			for (int m = 0; m < 3 - j; m++) {
-				routeLength++;
-			}
-		}
-		Tools tools = new Tools();
-		aList = tools.genWeWantRoute(routeLength);
-		// bubbleSort
+		// // bubbleSort
+		// int routeLength = 0;
+		// for (int j = 1; j < 3; j++) {
+		// 	for (int m = 0; m < 3 - j; m++) {
+		// 		routeLength++;
+		// 	}
+		// }
+		// Tools tools = new Tools();
+		// aList = tools.genWeWantRoute(routeLength);
+		// // bubbleSort
 
-		// binarySearch
+		// // binarySearch
 		// double arrInt = 5.0;
 		// double d = Math.ceil(arrInt / 2);
 		// int totalCompareNum = (int) d;
@@ -134,20 +134,21 @@ public class ACO {
 		// aList.remove(2);
 		// aList.remove(2);
 		// aList.add("$");
-		// binarySearch
+		// // binarySearch
 
 		// triangle
-		// aList.add("000");
-		// aList.add("001");
-		// aList.add("11");
-		// aList.add("22");
-		// aList.add("33");
+		aList.add("000");
+		aList.add("001");
+		aList.add("11");
+		aList.add("22");
+		aList.add("33");
 		// triangle
+
 		int success = 0;
 		int failure = 0;
 		long start = System.currentTimeMillis();
 		int totalIterations = 0;
-		int loop = 10;
+		int loop = 1;
 		for (int j = loop; j > 0; j--) {
 			ACO aco = new ACO();
 			for (int i = 0; i < aList.size(); i++) {
@@ -157,8 +158,8 @@ public class ACO {
 					// i--;
 				} else {
 					success++;
-					// System.out.println("Branch: " + aList.get(i));
-					// System.out.println("***************************");
+					System.out.println("Branch: " + aList.get(i));
+					System.out.println("***************************");
 					totalIterations += aco.iterations();
 				}
 			}
@@ -168,7 +169,7 @@ public class ACO {
 		float averageTime = executionTime / loop;
 		float codeCoverage = (float) success / (success + failure);
 		float averageIterations = (float) totalIterations / success;
-		System.out.println("Tested Program: BubbleSort.java");
+		System.out.println("Tested Program: TriangleType.java");
 		System.out.println("Code Coverage: " + codeCoverage);
 		System.out.println("Success Rate: " + codeCoverage);
 		System.out.println("Avearge Execution Time: " + averageTime + "s");

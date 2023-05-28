@@ -116,7 +116,7 @@ public class ANT {
         }
         string2 = string2 + (int) (CityGraph.getDistance(Tabu.size() - 1, 0)) + "";
 
-        // binarySearch
+        // // binarySearch
         // ArrayList<String> aList = new ArrayList<>();
         // for (int m = 0; m < 6; m++) {
         // int first = m * 6;
@@ -148,52 +148,52 @@ public class ANT {
         // return "!";
         // }
 
-        // binarySearch
+        // // binarySearch
 
-        // bubbleSort
-        ArrayList<String> aList = new ArrayList<>();
-        for (int m = 0; m < 3; m++) {
-            int first = m * 6;
-            aList.add(string2.substring(first, first + 6));
-        }
-
-        Tools tools = new Tools();
-        int[] intArray = new int[aList.size()];
-        int[] notChangeIntArray = new int[aList.size()];
-        for (int n = 0; n < aList.size(); n++) {
-            intArray[n] = Integer.parseInt(tools.deCode2to10(aList.get(n)));
-        }
-
-        BubbleSort bubbleSort = new BubbleSort();
-        notChangeIntArray = intArray.clone();
-        String realRoute = bubbleSort.sort(intArray);
-        double score = tools.calScore(weWantRoute, realRoute);
-        // System.out.println("SCORE: "+score);
-        if (score == 1.0) {
-            // for (int o = 0; o < notChangeIntArray.length; o++) {
-            // System.out.println(notChangeIntArray[o]);
-            // }
-            return "!";
-        }
-        // bubbleSort
-
-        // triangle
-        // String aString = string2.substring(0, 8);
-        // String bString = string2.substring(8, 16);
-        // String cString = string2.substring(16, 24);
+        // // bubbleSort
+        // ArrayList<String> aList = new ArrayList<>();
+        // for (int m = 0; m < 3; m++) {
+        //     int first = m * 6;
+        //     aList.add(string2.substring(first, first + 6));
+        // }
 
         // Tools tools = new Tools();
-        // int a = Integer.parseInt(tools.deCode2to10(aString));
-        // int b = Integer.parseInt(tools.deCode2to10(bString));
-        // int c = Integer.parseInt(tools.deCode2to10(cString));
-        // Triangle triangle = new Triangle();
-        // String realRoute = triangle.judge(a, b, c);
-        // double score = tools.calScore(weWantRoute, realRoute);
-        // if (score == 1.0) {
-        // // System.out.println("Sides are : " + a + "," + b + "," + c);
-        // return "!";
-
+        // int[] intArray = new int[aList.size()];
+        // int[] notChangeIntArray = new int[aList.size()];
+        // for (int n = 0; n < aList.size(); n++) {
+        //     intArray[n] = Integer.parseInt(tools.deCode2to10(aList.get(n)));
         // }
+
+        // BubbleSort bubbleSort = new BubbleSort();
+        // notChangeIntArray = intArray.clone();
+        // String realRoute = bubbleSort.sort(intArray);
+        // double score = tools.calScore(weWantRoute, realRoute);
+        // // System.out.println("SCORE: "+score);
+        // if (score == 1.0) {
+        //     for (int o = 0; o < notChangeIntArray.length; o++) {
+        //     System.out.println(notChangeIntArray[o]);
+        //     }
+        //     return "!";
+        // }
+        // // bubbleSort
+
+        // triangle
+        String aString = string2.substring(0, 8);
+        String bString = string2.substring(8, 16);
+        String cString = string2.substring(16, 24);
+
+        Tools tools = new Tools();
+        int a = Integer.parseInt(tools.deCode2to10(aString));
+        int b = Integer.parseInt(tools.deCode2to10(bString));
+        int c = Integer.parseInt(tools.deCode2to10(cString));
+        Triangle triangle = new Triangle();
+        String realRoute = triangle.judge(a, b, c);
+        double score = tools.calScore(weWantRoute, realRoute);
+        if (score == 1.0) {
+        System.out.println("Sides are : " + a + "," + b + "," + c);
+        return "!";
+
+        }
         // triangle
 
         Q = Q * score;
